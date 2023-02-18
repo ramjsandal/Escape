@@ -5,12 +5,12 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Transform playerBody;
+    private Transform _playerBody;
     public float mouseSensitivity = 10f;
-    private float pitch = 0;
+    private float _pitch = 0;
     void Start()
     {
-        playerBody = transform.parent.transform;
+        _playerBody = transform.parent.transform;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -23,14 +23,14 @@ public class MouseLook : MonoBehaviour
         float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
         
         // Yaw
-        playerBody.Rotate(Vector3.up * moveX);
+        _playerBody.Rotate(Vector3.up * moveX);
         
         // Pitch
-        pitch -= moveY;
+        _pitch -= moveY;
 
-        pitch = Mathf.Clamp(pitch, -90f, 90f);
+        _pitch = Mathf.Clamp(_pitch, -90f, 90f);
         
-        transform.localRotation = Quaternion.Euler(pitch,0,0);
+        transform.localRotation = Quaternion.Euler(_pitch,0,0);
         
     }
 }
