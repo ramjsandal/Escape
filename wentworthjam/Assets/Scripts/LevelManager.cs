@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     private PlayerStatus _playerStatus;
     [SerializeField] private Image healthbar;
     [SerializeField] private string thisScene;
+    [SerializeField] private string nextScene;
     
     // Start is called before the first frame update
     void Start()
@@ -26,5 +27,10 @@ public class LevelManager : MonoBehaviour
         }
 
         healthbar.fillAmount = _playerStatus.PercentHealth();
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(nextScene);
     }
 }
