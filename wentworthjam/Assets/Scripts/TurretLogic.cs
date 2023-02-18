@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretLogic : MonoBehaviour
+public class TurretLogic : Subject
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private float cooldown;
-    
+    [SerializeField] private float minDistance;
+
+    private bool _triggered = false;
     private GameObject _player;
     private Transform _playerTransform;
     
@@ -19,6 +21,25 @@ public class TurretLogic : MonoBehaviour
     
     void Update()
     {
+        if (!_triggered)
+        {
+            Vector3 playerPos = _player.transform.position;
+            Vector3 thisPos = this.transform.position;
+            // Get the distance to the player
+            float distance = Vector3.Distance(thisPos, playerPos);
+            float angle = Vector3.SignedAngle(_player.transform.forward, thisPos - playerPos, Vector3.up);
+            Debug.Log(angle);
+
+            // If we are close to the player, then we notify the baby
+            // if we are to the left, right, in front of, or behind the player
+            if (distance < minDistance)
+            {
+                Zone zone = FindZone(angle);
+                Notify(this, zone);
+                _triggered = true;
+            }
+        }
+
     }
 
     void _fireBullet()
@@ -29,5 +50,33 @@ public class TurretLogic : MonoBehaviour
             new Vector3(playerPos.x - turretPos.x, playerPos.y - turretPos.y, playerPos.z - turretPos.z).normalized;
 
         Instantiate(bullet, turretPos, Quaternion.LookRotation(towardsPlayer));
+    }
+
+    Zone FindZone(float signedAngle)
+    {
+        // In front of the player
+        if (signedAngle > 0)
+        {
+            if (signedAngle < 90)
+            {
+                return Zone.FrontRight;
+            }
+            else
+            {
+                return Zone.BackRight;
+            }
+        }
+        // Behind the player
+        else
+        {
+            if (signedAngle > -90)
+            {
+                return Zone.FrontLeft;
+            }
+            else
+            {
+                return Zone.BackLeft;
+            }
+        }
     }
 }
