@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerBulletLogic : MonoBehaviour
@@ -17,4 +19,15 @@ public class PlayerBulletLogic : MonoBehaviour
         Transform t = transform;
         t.position += t.forward * (bulletSpeed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collided");
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
+
 }

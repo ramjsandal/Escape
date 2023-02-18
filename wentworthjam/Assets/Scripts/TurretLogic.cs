@@ -28,7 +28,6 @@ public class TurretLogic : Subject
             // Get the distance to the player
             float distance = Vector3.Distance(thisPos, playerPos);
             float angle = Vector3.SignedAngle(_player.transform.forward, thisPos - playerPos, Vector3.up);
-            Debug.Log(angle);
 
             // If we are close to the player, then we notify the baby
             // if we are to the left, right, in front of, or behind the player
