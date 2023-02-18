@@ -233,6 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1d7a27018df3646aebf27497711736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 811669089}
+  thisScene: SampleScene
 --- !u!1001 &481232299
 PrefabInstance:
   m_ObjectHideFlags: 0

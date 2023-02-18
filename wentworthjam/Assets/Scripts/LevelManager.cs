@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
     private PlayerStatus _playerStatus;
     [SerializeField] private Image healthbar;
+    [SerializeField] private string thisScene;
     
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class LevelManager : MonoBehaviour
     {
         if (_playerStatus.IsDead())
         {
+            SceneManager.LoadScene(thisScene);
             Debug.Log("Player is dead");
         }
 
