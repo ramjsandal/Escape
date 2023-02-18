@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class TurretBulletLogic : MonoBehaviour
+public class PlayerBulletLogic : MonoBehaviour
 {
-    private Transform _player;
+    // Start is called before the first frame update\
     [SerializeField] private float bulletSpeed;
-    
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
-        this.transform.position = Vector3.MoveTowards(this.transform.position,
-            _player.position, bulletSpeed * Time.deltaTime);
+        
     }
 
     // Update is called once per frame
@@ -21,5 +17,4 @@ public class TurretBulletLogic : MonoBehaviour
         Transform t = transform;
         t.position += t.forward * (bulletSpeed * Time.deltaTime);
     }
-    
 }
