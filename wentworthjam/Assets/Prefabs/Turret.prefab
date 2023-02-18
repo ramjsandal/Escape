@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 862581127303941422}
   - component: {fileID: 862581127303941423}
   - component: {fileID: 862581127303941416}
+  - component: {fileID: 1274485888}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,3 +114,19 @@ MonoBehaviour:
   bullet: {fileID: 6885157497891510791, guid: d40f3e224c4319149ab912891c4fb594, type: 3}
   cooldown: 3
   minDistance: 10
+--- !u!54 &1274485888
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862581127303941417}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
