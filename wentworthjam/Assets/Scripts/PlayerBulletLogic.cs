@@ -19,15 +19,18 @@ public class PlayerBulletLogic : MonoBehaviour
         Transform t = transform;
         t.position += t.forward * (bulletSpeed * Time.deltaTime);
     }
+    
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collided");
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
     }
-
-
 }

@@ -35,5 +35,13 @@ public class TurretBulletLogic : MonoBehaviour
             _playerStatus.DealDamage(damageAmount);
             Destroy(this.gameObject);
         }
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
+            
+        } else 
+        {
+            Destroy(this.gameObject);
+        }
     }
+    
 }

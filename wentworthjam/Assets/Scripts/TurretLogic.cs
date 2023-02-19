@@ -11,11 +11,13 @@ public class TurretLogic : Subject
     private bool _triggered = false;
     private GameObject _player;
     private Transform _playerTransform;
+    private Transform _root;
     
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerTransform = _player.GetComponent<Transform>();
+        _root = this.gameObject.transform.GetChild(1);
         InvokeRepeating("_fireBullet", cooldown, cooldown);
     }
     
@@ -38,6 +40,7 @@ public class TurretLogic : Subject
                 _triggered = true;
             }
         }
+        
 
     }
 
@@ -47,8 +50,9 @@ public class TurretLogic : Subject
         Vector3 turretPos = this.transform.position;
         Vector3 towardsPlayer =
             new Vector3(playerPos.x - turretPos.x, playerPos.y - turretPos.y, playerPos.z - turretPos.z).normalized;
-
-        Instantiate(bullet, turretPos, Quaternion.LookRotation(towardsPlayer));
+        Vector3 rootPos = _root.position;
+        Vector3 firePos = new Vector3(rootPos.x, rootPos.y, rootPos.z);
+        Instantiate(bullet, firePos, Quaternion.LookRotation(towardsPlayer));
     }
 
     Zone FindZone(float signedAngle)
