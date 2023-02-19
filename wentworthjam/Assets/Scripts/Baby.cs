@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Baby : Observer
 {
-    [SerializeField] private AudioClip frontLeft;
-    [SerializeField] private AudioClip frontRight;
-    [SerializeField] private AudioClip backLeft;
-    [SerializeField] private AudioClip backRight;
+    [SerializeField] private AudioClip[] frontLeft;
+    [SerializeField] private AudioClip[] frontRight;
+    [SerializeField] private AudioClip[] backLeft;
+    [SerializeField] private AudioClip[] backRight;
     private AudioClip _current;
     
     void Start()
@@ -22,22 +22,27 @@ public class Baby : Observer
 
     public override void OnNotify(object value, Zone zoneType)
     {
+        int index;
         switch (zoneType)
         {
             case Zone.FrontLeft:
-                _current = frontLeft;
+                index = Random.Range(0, frontLeft.Length);
+                _current = frontLeft[index];
                 Debug.Log("Front Left");
                 break;
             case Zone.BackLeft:
-                _current = backLeft;
+                index = Random.Range(0, backLeft.Length);
+                _current = backLeft[index];
                 Debug.Log("Back Left");
                 break;
             case Zone.BackRight:
-                _current = backRight;
+                index = Random.Range(0, backRight.Length);
+                _current = backRight[index];
                 Debug.Log("Back Right");
                 break;
             case Zone.FrontRight:
-                _current = frontRight;
+                index = Random.Range(0, frontRight.Length);
+                _current = frontRight[index];
                 Debug.Log("Front Right");
                 break;
         }
