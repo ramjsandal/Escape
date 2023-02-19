@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4492911796237034425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.84, y: 0.34, z: 2.64}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4492911796641729808}
@@ -116,7 +116,7 @@ MonoBehaviour:
   jumpHeight: 2
   gravity: 9.81
   airControl: 10
-  moveSpeed: 10
+  moveSpeed: 2
 --- !u!143 &4492911796237034375
 CharacterController:
   m_ObjectHideFlags: 0
