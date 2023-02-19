@@ -4607,7 +4607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f09054e92097a5428b28a186c92707b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Main Menu
+  nextScene: YouWin
 --- !u!4 &555169106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5723830177662769878, guid: 953fa362a691764498ea04c9f3403b05, type: 3}
@@ -12351,6 +12351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4492911796237034426, guid: a63bed9b1fc0d8a40ac5ff3d55eb7adc, type: 3}
+      propertyPath: jumpHeight
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4492911796237034427, guid: a63bed9b1fc0d8a40ac5ff3d55eb7adc, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -12397,7 +12401,7 @@ PrefabInstance:
       objectReference: {fileID: 575597893}
     - target: {fileID: 5675239634371137090, guid: 5b5126aec40bf7346b1d07fb46cde808, type: 3}
       propertyPath: nextScene
-      value: Level 1
+      value: YouWin
       objectReference: {fileID: 0}
     - target: {fileID: 5675239634371137090, guid: 5b5126aec40bf7346b1d07fb46cde808, type: 3}
       propertyPath: thisScene
