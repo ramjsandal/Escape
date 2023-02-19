@@ -783,4 +783,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6885157497891510791, guid: d40f3e224c4319149ab912891c4fb594, type: 3}
   cooldown: 2
-  minDistance: 10
+  minDistance: 7
